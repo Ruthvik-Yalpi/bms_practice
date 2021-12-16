@@ -1,25 +1,38 @@
+// import logo from './logo.svg';
+// import './App.css';
+
+// function App() {
+//   return (
+//     <div className="App">
+//      <h1 className="text-green-500">Hello All!</h1>    </div>
+//   );
+// }
+
+// export default App;
+
+
+
+
+//---------------------for project-------------------
 import logo from './logo.svg';
 import './App.css';
 
+function Name(){            //imagine this like home page
+  return <h1>Hello Root</h1>;
+}
+
+
+function Name2(){
+  return <h1>Hello Movie</h1>; //imagine this like movie page
+}
+
+
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    
   );
 }
+
+// <> </> these are called fragments this helps us even if we forget closidng tag during the rendering of data
 
 export default App;
