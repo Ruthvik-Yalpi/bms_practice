@@ -34,11 +34,11 @@ import App from './App';
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>  
-    {/* //it means our entire react or application is inside browser router    */}
+     
     <App />
     </BrowserRouter>
   </React.StrictMode>,
   document.getElementById('root')
 );
 
-
+//it means our entire react or application is inside browser router    

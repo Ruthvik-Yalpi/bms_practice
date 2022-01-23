@@ -1,38 +1,34 @@
-// import logo from './logo.svg';
-// import './App.css';
+import { Route } from "react-router-dom";
 
-// function App() {
-//   return (
-//     <div className="App">
-//      <h1 className="text-green-500">Hello All!</h1>    </div>
-//   );
-// }
+//axios
+import axios from "axios";
 
-// export default App;
+//HOC
+import DefaultHOC from "./HOC/Default.HOC";
+import MovieHOC from "./HOC/Movie.HOC";
 
+//Pages
+import HomePage from "./pages/Home.page";
+import Movie from "./pages/Movie.page";
+import Plays from "./pages/Plays.page";
 
+// Import css files
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css"
 
-
-//---------------------for project-------------------
-import logo from './logo.svg';
-import './App.css';
-
-function Name(){            //imagine this like home page
-  return <h1>Hello Root</h1>;
-}
-
-
-function Name2(){
-  return <h1>Hello Movie</h1>; //imagine this like movie page
-}
-
+//axios default settings
+axios.defaults.baseURL = "https://api.themoviedb.org/3";
+axios.defaults.params = {};
+axios.defaults.params["api_key"] = process.env.REACT_APP_API_KEY;
 
 function App() {
   return (
-    
+    <>
+     <DefaultHOC path="/" exact component={HomePage} />
+     <MovieHOC path="/movie/:id" exact component={Movie} />
+     <DefaultHOC path="/plays" exact component={Plays} />
+    </>
   );
 }
-
-// <> </> these are called fragments this helps us even if we forget closidng tag during the rendering of data
-
+// / , /movie
 export default App;

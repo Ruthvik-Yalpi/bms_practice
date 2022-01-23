@@ -1,11 +1,55 @@
-const Movie = () => {
-    return (
-      <>
-        <div className="w-full h-full">
-          <img className="w-full h-full" src="https://in.bmscdn.com/iedb/movies/images/mobile/listing/medium/spider-man-no-way-home-et00310790-07-12-2021-07-25-42.jpg"/>
-        </div>
-      </>
-    );
+import React from "react";
+import MovieHero from "../components/MovieHero/MovieHero.component";
+import {BiCameraMovie} from "react-icons/bi";
+
+const launchRazorPay = () => {
+  let options = {
+    key: "ur api id",
+    amount: 500*100,
+    currency: "INR",
+    name: "Book My Show Clone",
+    description: "Movie Purchase on Rental",
+    image: "https://i.ibb.co/zPBYW3H/imgbin-bookmyshow-office-android-ticket-png.png",
+    handler: () => {
+      alert("Payment Done")
+    },
+    theme: {color: "#c4242d"}
   };
-  
-  export default Movie;
+  let rzp = new window.Razorpay(options);
+  rzp.open();
+};
+
+const  Movie = () => {
+return (
+<>
+<MovieHero />
+<div className="my-12 container px-4 lg:w-1/2 lg:ml-64">
+   <div className="flex flex-col items-start gap-3">
+      <h2 className="text-gray-800 font-bold text-2xl">About the movie</h2>
+      <p>Based on the smuggling of red sander trees in Seshachalam forest, Andhra Pradesh, Pushpa tells the story of a lorry driver who is part of the illegal business.</p>
+   </div>
+   <div className="my-8">
+      <hr />
+   </div>
+   <div className="flex flex-col items-start gap-3">
+      <h1 className="text-gray-800 font-bold text-2xl">Applicable Offers</h1>
+      <div className="flex items-start gap-2 bg-yellow-100 border-yellow-400 border-dashed border-2 rounded-md p-3 w-96">
+         <div className="w-8 h-8">
+            <BiCameraMovie className="w-full h-full"/>
+         </div>
+         <div className="flex flex-col items-start">
+            <h3 className="text-gray-900 text-lg">Filmy Pass</h3>
+            <p className="text-gray-600 text-sm">Get Rs.100* off on 3 movies you buy/rent on Stream. Buy Filmy Pass @Rs.150</p>
+         </div>
+      </div>
+   </div>
+
+   <button onClick={launchRazorPay} class="mt-4 bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-8 rounded">
+  Book tickets
+</button>
+
+</div>
+</>
+);
+};
+export default Movie;
